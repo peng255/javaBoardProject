@@ -24,15 +24,17 @@ public class Consol {
                     System.out.print("내용: ");
                     String body = scanner.nextLine().trim();
                     board.addArticle(title, body);
+                    System.out.print("\n\n");
                     break;
 
                 case "조회":
-                    System.out.printf("어떤 게시물을 조회할까요? (예: 1번) \n");
+                    System.out.print("어떤 게시물을 조회할까요? (예: 1번) \n");
                     String input = scanner.nextLine().trim();
                     int id = Integer.parseInt(input.substring(0, input.length()-1));
                     if(! board.printArticle(id)) {
                         System.out.println(input + " 게시글은 존재하지 않습니다.");
                     }
+                    System.out.println();
                     break;
 
                 case "삭제":
@@ -44,6 +46,7 @@ public class Consol {
                     }else{
                         System.out.println(input + " 게시글은 존재하지 않습니다.");
                     }
+                    System.out.println();
                     break;
 
                 case "수정":
@@ -62,16 +65,19 @@ public class Consol {
                     body = scanner.nextLine().trim();
                     board.editArticle(id, title, body);
                     System.out.printf("\n" + input + " 게시물이 성공적으로 수정되었습니다!\n");
+                    System.out.println();
                     break;
 
                 case "목록":
-                    System.out.printf("총 게시글은 " + board.getBoardSize() + "개 작성되어 있습니다.\n\n");
+                    System.out.printf("총 게시글은 " + board.getBoardSize() + "개 작성되어 있습니다.\n");
                     board.printBoard();
+                    System.out.println();
                     break;
 
 
                 default:
                     System.out.println("존재하지 않는 명령어 입니다.");
+                    System.out.println();
                     break;
             }
 

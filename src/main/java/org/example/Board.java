@@ -4,12 +4,9 @@ import java.util.LinkedList;
 
 
 public class Board {
-    private LinkedList<Article> articleList;
+    private LinkedList<Article> articleList = new LinkedList<>();;
     private static int lastId = 0;
 
-    public Board() {
-        articleList = new LinkedList<>();
-    }
 
     public int getBoardSize(){
         return articleList.size();
@@ -55,10 +52,10 @@ public class Board {
 
     public void printBoard(){
         for(Article a : articleList){
+            System.out.println();
             System.out.println(a.getId() + "번 게시물");
             System.out.println("제목 : " + a.getTitle());
             System.out.println("내용 : " + a.getBody());
-            System.out.println();
         }
     }
 
